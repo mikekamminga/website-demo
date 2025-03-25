@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Building Tokens for Scale - Design Systems Blog</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <nav>
+        <a href="../index.html" class="logo">Design Systems</a>
+        <div class="nav-links">
+          <a href="../index.html">Home</a>
+          <a href="../about.html">About</a>
+        </div>
+        <button id="theme-toggle" class="theme-toggle">☀️ Light Mode</button>
+      </nav>
+    </header>
+
+    <main>
+      <article class="post-content">
+        <h1>Building Tokens for Scale</h1>
+        <div class="post-meta">June 2, 2023</div>
+        
+        <p>Design tokens are the foundation of any robust design system. They're the atoms from which all other components are built, providing a single source of truth for your design language. In this post, we'll explore how to build a token system that scales effectively across products and platforms.</p>
+        
+        <h2>What Are Design Tokens?</h2>
+        
+        <p>Design tokens are named entities that store visual design attributes. They're essentially variables that can be used across different platforms and codebases. Instead of hardcoding values like <code>#FF0000</code> or <code>16px</code>, you define tokens like <code>--color-primary</code> or <code>--spacing-medium</code> that can be referenced throughout your system.</p>
+        
+        <p>Common categories of design tokens include:</p>
+        
+        <ul>
+          <li><strong>Colors:</strong> Primary, secondary, accent, text, background, etc.</li>
+          <li><strong>Typography:</strong> Font families, sizes, weights, line heights</li>
+          <li><strong>Spacing:</strong> Margins, paddings, gaps</li>
+          <li><strong>Borders:</strong> Widths, radii, colors</li>
+          <li><strong>Shadows:</strong> Box shadows, drop shadows</li>
+          <li><strong>Animation:</strong> Durations, easing functions</li>
+          <li><strong>Breakpoints:</strong> Screen size thresholds</li>
+        </ul>
+        
+        <h2>The Token Hierarchy</h2>
+        
+        <p>A well-structured token system typically has multiple layers of abstraction:</p>
+        
+        <h3>1. Global Tokens</h3>
+        
+        <p>These are your most basic values, often representing the raw palette:</p>
+        
+        <pre><code>--color-blue-500: #0066FF;
+--color-gray-100: #F5F5F5;
+--spacing-4: 4px;
+--spacing-8: 8px;</code></pre>
+        
+        <h3>2. Semantic Tokens</h3>
+        
+        <p>These map global tokens to their functional use:</p>
+        
+        <pre><code>--color-primary: var(--color-blue-500);
+--color-background: var(--color-gray-100);
+--space-small: var(--spacing-4);
+--space-medium: var(--spacing-8);</code></pre>
+        
+        <h3>3. Component-Specific Tokens</h3>
+        
+        <p>These apply semantic tokens to specific components:</p>
+        
+        <pre><code>--button-primary-background: var(--color-primary);
+--button-padding: var(--space-medium);</code></pre>
+        
+        <p>This layered approach allows for flexibility and consistency. If your brand color changes, you only need to update the semantic token mapping, and all components using that token will update automatically.</p>
+        
+        <h2>Implementing Tokens Across Platforms</h2>
+        
+        <p>One of the challenges of design tokens is maintaining consistency across different platforms and technologies. Here are some approaches:</p>
+        
+        <h3>CSS Custom Properties</h3>
+        
+        <p>For web applications, CSS variables are a natural fit:</p>
+        
+        <pre><code>:root {
+  --color-primary: #0066FF;
+  --spacing-medium: 8px;
+}
+
+.button {
+  background-color: var(--color-primary);
+  padding: var(--spacing-medium);
+}</code></pre>
+        
+        <h3>JSON/YAML as a Source of Truth</h3>
+        
+        <p>Many teams store tokens in a platform-agnostic format like JSON or YAML:</p>
+        
+        <pre><code>{
+  "color": {
+    "primary": {
+      "value": "#0066FF"
+    }
+  },
+  "spacing": {
+    "medium": {
+      "value": "8px"
+    }
+  }
+}</code></pre>
+        
+        <p>This can then be transformed into platform-specific formats using tools like <a href="https://amzn.github.io/style-dictionary/" target="_blank">Style Dictionary</a> or <a href="https://www.figma.com/community/plugin/843461159747178978/Tokens-Studio-for-Figma" target="_blank">Tokens Studio</a>.</p>
+        
+        <h3>Native Platform Variables</h3>
+        
+        <p>For native applications, tokens can be implemented using platform-specific variables:</p>
+        
+        <ul>
+          <li>Swift: Using color assets and dimension resources</li>
+          <li>Android: Using resource files (<code>colors.xml</code>, <code>dimens.xml</code>)</li>
+          <li>React Native: Using a theme provider</li>
+        </ul>
+        
+        <h2>Best Practices for Scaling Tokens</h2>
+        
+        <h3>1. Use a Consistent Naming Convention</h3>
+        
+        <p>Adopt a clear, predictable naming pattern. Common approaches include:</p>
+        
+        <ul>
+          <li><strong>Category-Property-Scale:</strong> <code>--color-background-primary</code></li>
+          <li><strong>Purpose-Property-Variant:</strong> <code>--button-background-hover</code></li>
+        </ul>
+        
+        <h3>2. Document Your Token System</h3>
+        
+        <p>Comprehensive documentation helps teams understand how and when to use specific tokens. Include:</p>
+        
+        <ul>
+          <li>Visual examples of each token</li>
+          <li>Usage guidelines and constraints</li>
+          <li>Implementation details for different platforms</li>
+        </ul>
+        
+        <h3>3. Plan for Theming</h3>
+        
+        <p>Design your token system with theming in mind from the start. This might include:</p>
+        
+        <ul>
+          <li>Light and dark mode variants</li>
+          <li>Brand-specific themes for different products</li>
+          <li>Seasonal or campaign-based themes</li>
+        </ul>
+        
+        <h3>4. Version Your Tokens</h3>
+        
+        <p>As your design system evolves, so will your tokens. Implement versioning to manage changes without breaking existing implementations.</p>
+        
+        <h2>Tools for Managing Design Tokens</h2>
+        
+        <p>Several tools can help you manage and distribute design tokens:</p>
+        
+        <ul>
+          <li><strong>Style Dictionary:</strong> An open-source tool that transforms design tokens into platform-specific variables</li>
+          <li><strong>Theo:</strong> Salesforce's token management system</li>
+          <li><strong>Tokens Studio:</strong> A Figma plugin for creating and managing tokens</li>
+          <li><strong>Specify:</strong> A tool for syncing design tokens between design tools and code</li>
+        </ul>
+        
+        <h2>Conclusion</h2>
+        
+        <p>Design tokens are the foundation of a scalable design system. By carefully structuring your tokens with clear naming conventions, appropriate levels of abstraction, and cross-platform compatibility in mind, you can create a flexible system that grows with your organization.</p>
+        
+        <p>Remember that building a token system is not a one-time effort—it's an ongoing process that requires maintenance and refinement as your products and design language evolve. But the investment pays off in consistency, efficiency, and the ability to make sweeping changes with minimal effort.</p>
+      </article>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 Design Systems Blog. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script src="../js/theme.js"></script>
+</body>
+</html>
