@@ -13,7 +13,9 @@
   <div class="container">
     <header>
       <nav>
-        <a href="../index.html" class="logo">Design Systems</a>
+        <a href="../index.html" class="logo">
+          <img src="../images/logo.svg" alt="Design Systems Logo">
+        </a>
         <div class="nav-links">
           <a href="../index.html">Home</a>
           <a href="../about.html">About</a>
@@ -23,163 +25,164 @@
     </header>
 
     <main>
-      <article class="post-content">
-        <h1>Component Architecture for Design Systems</h1>
-        <div class="post-meta">June 20, 2023</div>
-        
-        <p>Components are the building blocks of modern user interfaces and the heart of any design system. But creating a component architecture that's flexible, maintainable, and scalable requires careful planning and thoughtful design decisions. In this post, we'll explore strategies for structuring components in a way that serves both designers and developers.</p>
-        
-        <h2>The Anatomy of a Well-Designed Component</h2>
-        
-        <p>Before diving into architecture, let's consider what makes a component "good" in the context of a design system:</p>
-        
-        <ul>
-          <li><strong>Reusable:</strong> Can be used in multiple contexts without modification</li>
-          <li><strong>Composable:</strong> Can be combined with other components to create more complex UIs</li>
-          <li><strong>Configurable:</strong> Adaptable to different use cases through props/parameters</li>
-          <li><strong>Accessible:</strong> Follows accessibility best practices by default</li>
-          <li><strong>Consistent:</strong> Aligns with the overall design language</li>
-          <li><strong>Documented:</strong> Has clear usage guidelines and examples</li>
-        </ul>
-        
-        <h2>Component Hierarchy: Atomic Design</h2>
-        
-        <p>One popular approach to component architecture is <a href="https://bradfrost.com/blog/post/atomic-web-design/" target="_blank">Atomic Design</a>, developed by Brad Frost. This methodology breaks down components into five distinct levels:</p>
-        
-        <h3>1. Atoms</h3>
-        
-        <p>The smallest, indivisible UI elements:</p>
-        <ul>
-          <li>Buttons</li>
-          <li>Input fields</li>
-          <li>Icons</li>
-          <li>Typography elements</li>
-        </ul>
-        
-        <h3>2. Molecules</h3>
-        
-        <p>Simple groups of atoms functioning together:</p>
-        <ul>
-          <li>Search form (input + button)</li>
-          <li>Navigation item (icon + text)</li>
-          <li>Form field (label + input + error message)</li>
-        </ul>
-        
-        <h3>3. Organisms</h3>
-        
-        <p>More complex UI sections composed of molecules and atoms:</p>
-        <ul>
-          <li>Header (logo + navigation + search)</li>
-          <li>Product card (image + title + price + button)</li>
-          <li>Comment section (avatar + username + text + actions)</li>
-        </ul>
-        
-        <h3>4. Templates</h3>
-        
-        <p>Page-level structures that arrange organisms:</p>
-        <ul>
-          <li>Article layout</li>
-          <li>Product detail page</li>
-          <li>Dashboard layout</li>
-        </ul>
-        
-        <h3>5. Pages</h3>
-        
-        <p>Specific instances of templates with real content.</p>
-        
-        <p>This hierarchical approach helps teams think systematically about component relationships and promotes reuse at every level.</p>
-        
-        <h2>Component Types and Patterns</h2>
-        
-        <p>Beyond the atomic hierarchy, it's useful to categorize components by their functional role in the system:</p>
-        
-        <h3>Primitive Components</h3>
-        
-        <p>These are the low-level building blocks that directly implement design tokens:</p>
-        <ul>
-          <li><strong>Box/Container:</strong> For layout and spacing</li>
-          <li><strong>Text:</strong> For typography styles</li>
-          <li><strong>Icon:</strong> For visual elements</li>
-        </ul>
-        
-        <h3>Composite Components</h3>
-        
-        <p>These combine primitives into more complex, reusable patterns:</p>
-        <ul>
-          <li><strong>Card:</strong> A container with specific styling and layout</li>
-          <li><strong>Modal:</strong> A dialog with backdrop, content area, and actions</li>
-          <li><strong>Tabs:</strong> A navigation pattern with tab list and content panels</li>
-        </ul>
-        
-        <h3>Layout Components</h3>
-        
-        <p>These manage the arrangement of other components:</p>
-        <ul>
-          <li><strong>Grid:</strong> For two-dimensional layouts</li>
-          <li><strong>Stack:</strong> For one-dimensional layouts (vertical or horizontal)</li>
-          <li><strong>Split:</strong> For dividing space between components</li>
-        </ul>
-        
-        <h2>Component API Design</h2>
-        
-        <p>How you define the interface for your components is crucial for their usability and longevity. Here are some principles to consider:</p>
-        
-        <h3>Props vs. Composition</h3>
-        
-        <p>There are two main approaches to component configuration:</p>
-        
-        <ul>
-          <li><strong>Props-based:</strong> Configuration through properties
-            <pre><code>&lt;Button size="large" variant="primary" icon="download"&gt;
+      <div class="article-container">
+        <article class="post-content">
+          <h1>Component Architecture for Design Systems</h1>
+          <div class="post-meta">June 20, 2023</div>
+          
+          <p>Components are the building blocks of modern user interfaces and the heart of any design system. But creating a component architecture that's flexible, maintainable, and scalable requires careful planning and thoughtful design decisions. In this post, we'll explore strategies for structuring components in a way that serves both designers and developers.</p>
+          
+          <h2>The Anatomy of a Well-Designed Component</h2>
+          
+          <p>Before diving into architecture, let's consider what makes a component "good" in the context of a design system:</p>
+          
+          <ul>
+            <li><strong>Reusable:</strong> Can be used in multiple contexts without modification</li>
+            <li><strong>Composable:</strong> Can be combined with other components to create more complex UIs</li>
+            <li><strong>Configurable:</strong> Adaptable to different use cases through props/parameters</li>
+            <li><strong>Accessible:</strong> Follows accessibility best practices by default</li>
+            <li><strong>Consistent:</strong> Aligns with the overall design language</li>
+            <li><strong>Documented:</strong> Has clear usage guidelines and examples</li>
+          </ul>
+          
+          <h2>Component Hierarchy: Atomic Design</h2>
+          
+          <p>One popular approach to component architecture is <a href="https://bradfrost.com/blog/post/atomic-web-design/" target="_blank">Atomic Design</a>, developed by Brad Frost. This methodology breaks down components into five distinct levels:</p>
+          
+          <h3>1. Atoms</h3>
+          
+          <p>The smallest, indivisible UI elements:</p>
+          <ul>
+            <li>Buttons</li>
+            <li>Input fields</li>
+            <li>Icons</li>
+            <li>Typography elements</li>
+          </ul>
+          
+          <h3>2. Molecules</h3>
+          
+          <p>Simple groups of atoms functioning together:</p>
+          <ul>
+            <li>Search form (input + button)</li>
+            <li>Navigation item (icon + text)</li>
+            <li>Form field (label + input + error message)</li>
+          </ul>
+          
+          <h3>3. Organisms</h3>
+          
+          <p>More complex UI sections composed of molecules and atoms:</p>
+          <ul>
+            <li>Header (logo + navigation + search)</li>
+            <li>Product card (image + title + price + button)</li>
+            <li>Comment section (avatar + username + text + actions)</li>
+          </ul>
+          
+          <h3>4. Templates</h3>
+          
+          <p>Page-level structures that arrange organisms:</p>
+          <ul>
+            <li>Article layout</li>
+            <li>Product detail page</li>
+            <li>Dashboard layout</li>
+          </ul>
+          
+          <h3>5. Pages</h3>
+          
+          <p>Specific instances of templates with real content.</p>
+          
+          <p>This hierarchical approach helps teams think systematically about component relationships and promotes reuse at every level.</p>
+          
+          <h2>Component Types and Patterns</h2>
+          
+          <p>Beyond the atomic hierarchy, it's useful to categorize components by their functional role in the system:</p>
+          
+          <h3>Primitive Components</h3>
+          
+          <p>These are the low-level building blocks that directly implement design tokens:</p>
+          <ul>
+            <li><strong>Box/Container:</strong> For layout and spacing</li>
+            <li><strong>Text:</strong> For typography styles</li>
+            <li><strong>Icon:</strong> For visual elements</li>
+          </ul>
+          
+          <h3>Composite Components</h3>
+          
+          <p>These combine primitives into more complex, reusable patterns:</p>
+          <ul>
+            <li><strong>Card:</strong> A container with specific styling and layout</li>
+            <li><strong>Modal:</strong> A dialog with backdrop, content area, and actions</li>
+            <li><strong>Tabs:</strong> A navigation pattern with tab list and content panels</li>
+          </ul>
+          
+          <h3>Layout Components</h3>
+          
+          <p>These manage the arrangement of other components:</p>
+          <ul>
+            <li><strong>Grid:</strong> For two-dimensional layouts</li>
+            <li><strong>Stack:</strong> For one-dimensional layouts (vertical or horizontal)</li>
+            <li><strong>Split:</strong> For dividing space between components</li>
+          </ul>
+          
+          <h2>Component API Design</h2>
+          
+          <p>How you define the interface for your components is crucial for their usability and longevity. Here are some principles to consider:</p>
+          
+          <h3>Props vs. Composition</h3>
+          
+          <p>There are two main approaches to component configuration:</p>
+          
+          <ul>
+            <li><strong>Props-based:</strong> Configuration through properties
+              <pre><code>&lt;Button size="large" variant="primary" icon="download"&gt;
   Download
 &lt;/Button&gt;</code></pre>
-          </li>
-          <li><strong>Composition-based:</strong> Configuration through child components
-            <pre><code>&lt;Button&gt;
+            </li>
+            <li><strong>Composition-based:</strong> Configuration through child components
+              <pre><code>&lt;Button&gt;
   &lt;Icon name="download" /&gt;
   &lt;Text&gt;Download&lt;/Text&gt;
 &lt;/Button&gt;</code></pre>
-          </li>
-        </ul>
-        
-        <p>Most design systems use a combination of both approaches, with props for simple configuration and composition for more complex scenarios.</p>
-        
-        <h3>Variants vs. Props</h3>
-        
-        <p>When designing component APIs, you'll need to decide between predefined variants and individual props:</p>
-        
-        <ul>
-          <li><strong>Variant approach:</strong>
-            <pre><code>&lt;Button variant="primary" /&gt;
+            </li>
+          </ul>
+          
+          <p>Most design systems use a combination of both approaches, with props for simple configuration and composition for more complex scenarios.</p>
+          
+          <h3>Variants vs. Props</h3>
+          
+          <p>When designing component APIs, you'll need to decide between predefined variants and individual props:</p>
+          
+          <ul>
+            <li><strong>Variant approach:</strong>
+              <pre><code>&lt;Button variant="primary" /&gt;
 &lt;Button variant="secondary" /&gt;
 &lt;Button variant="danger" /&gt;</code></pre>
-          </li>
-          <li><strong>Props approach:</strong>
-            <pre><code>&lt;Button primary /&gt;
+            </li>
+            <li><strong>Props approach:</strong>
+              <pre><code>&lt;Button primary /&gt;
 &lt;Button secondary /&gt;
 &lt;Button danger /&gt;</code></pre>
-          </li>
-        </ul>
-        
-        <p>The variant approach is generally more maintainable as it encapsulates related properties and makes it easier to add new variants without changing the API.</p>
-        
-        <h3>Naming Conventions</h3>
-        
-        <p>Consistent naming is essential for a coherent component library:</p>
-        
-        <ul>
-          <li>Use clear, descriptive names that indicate the component's purpose</li>
-          <li>Be consistent with prefix/suffix patterns (e.g., all form components prefixed with "Form")</li>
-          <li>Use standard prop names across components (e.g., "size" instead of mixing "size" and "dimension")</li>
-        </ul>
-        
-        <h2>Implementation Strategies</h2>
-        
-        <h3>The Base Component Pattern</h3>
-        
-        <p>Many design systems use a "base component" pattern to promote consistency and reduce duplication:</p>
-        
-        <pre><code>// Base component with core functionality
+            </li>
+          </ul>
+          
+          <p>The variant approach is generally more maintainable as it encapsulates related properties and makes it easier to add new variants without changing the API.</p>
+          
+          <h3>Naming Conventions</h3>
+          
+          <p>Consistent naming is essential for a coherent component library:</p>
+          
+          <ul>
+            <li>Use clear, descriptive names that indicate the component's purpose</li>
+            <li>Be consistent with prefix/suffix patterns (e.g., all form components prefixed with "Form")</li>
+            <li>Use standard prop names across components (e.g., "size" instead of mixing "size" and "dimension")</li>
+          </ul>
+          
+          <h2>Implementation Strategies</h2>
+          
+          <h3>The Base Component Pattern</h3>
+          
+          <p>Many design systems use a "base component" pattern to promote consistency and reduce duplication:</p>
+          
+          <pre><code>// Base component with core functionality
 const BaseButton = ({ children, ...props }) => (
   &lt;button {...props}&gt;{children}&lt;/button&gt;
 );
@@ -192,60 +195,96 @@ const PrimaryButton = (props) => (
 const SecondaryButton = (props) => (
   &lt;BaseButton className="btn-secondary" {...props} /&gt;
 );</code></pre>
+          
+          <h3>Composition vs. Inheritance</h3>
+          
+          <p>In component-based architectures, composition is generally preferred over inheritance:</p>
+          
+          <ul>
+            <li><strong>Composition:</strong> Building complex components by combining simpler ones</li>
+            <li><strong>Inheritance:</strong> Extending component classes/functions to add or modify behavior</li>
+          </ul>
+          
+          <p>Composition leads to more flexible, maintainable components that are easier to reason about and test.</p>
+          
+          <h3>Styling Approaches</h3>
+          
+          <p>The way you style components can significantly impact your architecture:</p>
+          
+          <ul>
+            <li><strong>CSS Modules:</strong> Scoped CSS files imported into components</li>
+            <li><strong>CSS-in-JS:</strong> JavaScript libraries that generate CSS at runtime</li>
+            <li><strong>Utility Classes:</strong> Composing styles from small, single-purpose classes</li>
+            <li><strong>Custom Properties:</strong> Using CSS variables for theming and configuration</li>
+          </ul>
+          
+          <p>Each approach has trade-offs in terms of performance, developer experience, and flexibility.</p>
+          
+          <h2>Documentation and Testing</h2>
+          
+          <p>A robust component architecture includes not just the components themselves, but also:</p>
+          
+          <h3>Component Documentation</h3>
+          
+          <ul>
+            <li>Usage examples</li>
+            <li>Prop/API documentation</li>
+            <li>Design guidelines</li>
+            <li>Accessibility considerations</li>
+            <li>Interactive playgrounds (e.g., Storybook)</li>
+          </ul>
+          
+          <h3>Testing Strategy</h3>
+          
+          <ul>
+            <li>Unit tests for component logic</li>
+            <li>Visual regression tests for appearance</li>
+            <li>Accessibility tests</li>
+            <li>Integration tests for component interactions</li>
+          </ul>
+          
+          <h2>Conclusion</h2>
+          
+          <p>A well-designed component architecture is the backbone of a successful design system. By thoughtfully structuring your components with clear hierarchies, consistent APIs, and flexible implementation patterns, you can create a system that scales with your organization's needs.</p>
+          
+          <p>Remember that component architecture is not just a technical concern—it's a collaboration between design and development that shapes how teams build products. The best architectures emerge from close partnership between these disciplines and evolve based on real-world usage and feedback.</p>
+          
+          <!-- Add author section -->
+          <section class="author-section">
+            <h3>About the Author</h3>
+            <div class="author-container">
+              <img src="../images/author-avatar.svg" alt="Author Avatar" class="author-avatar">
+              <div class="author-bio">
+                <div class="author-name">Alex Morgan</div>
+                <p class="author-description">
+                  Alex is a senior design systems specialist with over 8 years of experience creating scalable design solutions for enterprise companies. Previously worked at Airbnb and Spotify, helping build their design systems from the ground up.
+                </p>
+                <div class="author-social">
+                  <a href="#">Twitter</a>
+                  <a href="#">LinkedIn</a>
+                  <a href="#">Website</a>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+          <div class="article-navigation">
+            <a href="building-tokens-for-scale.html" class="prev-article">
+              <span class="nav-title">Building Tokens for Scale</span>
+            </a>
+            <span></span>
+          </div>
+        </article>
         
-        <h3>Composition vs. Inheritance</h3>
-        
-        <p>In component-based architectures, composition is generally preferred over inheritance:</p>
-        
-        <ul>
-          <li><strong>Composition:</strong> Building complex components by combining simpler ones</li>
-          <li><strong>Inheritance:</strong> Extending component classes/functions to add or modify behavior</li>
-        </ul>
-        
-        <p>Composition leads to more flexible, maintainable components that are easier to reason about and test.</p>
-        
-        <h3>Styling Approaches</h3>
-        
-        <p>The way you style components can significantly impact your architecture:</p>
-        
-        <ul>
-          <li><strong>CSS Modules:</strong> Scoped CSS files imported into components</li>
-          <li><strong>CSS-in-JS:</strong> JavaScript libraries that generate CSS at runtime</li>
-          <li><strong>Utility Classes:</strong> Composing styles from small, single-purpose classes</li>
-          <li><strong>Custom Properties:</strong> Using CSS variables for theming and configuration</li>
-        </ul>
-        
-        <p>Each approach has trade-offs in terms of performance, developer experience, and flexibility.</p>
-        
-        <h2>Documentation and Testing</h2>
-        
-        <p>A robust component architecture includes not just the components themselves, but also:</p>
-        
-        <h3>Component Documentation</h3>
-        
-        <ul>
-          <li>Usage examples</li>
-          <li>Prop/API documentation</li>
-          <li>Design guidelines</li>
-          <li>Accessibility considerations</li>
-          <li>Interactive playgrounds (e.g., Storybook)</li>
-        </ul>
-        
-        <h3>Testing Strategy</h3>
-        
-        <ul>
-          <li>Unit tests for component logic</li>
-          <li>Visual regression tests for appearance</li>
-          <li>Accessibility tests</li>
-          <li>Integration tests for component interactions</li>
-        </ul>
-        
-        <h2>Conclusion</h2>
-        
-        <p>A well-designed component architecture is the backbone of a successful design system. By thoughtfully structuring your components with clear hierarchies, consistent APIs, and flexible implementation patterns, you can create a system that scales with your organization's needs.</p>
-        
-        <p>Remember that component architecture is not just a technical concern—it's a collaboration between design and development that shapes how teams build products. The best architectures emerge from close partnership between these disciplines and evolve based on real-world usage and feedback.</p>
-      </article>
+        <aside class="side-nav">
+          <h3>More Articles</h3>
+          <ul>
+            <li><a href="why-design-systems-matter.html">Why Design Systems Matter</a></li>
+            <li><a href="building-tokens-for-scale.html">Building Tokens for Scale</a></li>
+            <li><a href="component-architecture.html" class="active">Component Architecture</a></li>
+          </ul>
+        </aside>
+      </div>
     </main>
 
     <footer>
